@@ -1,0 +1,12 @@
+# Run FastQC from https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ to determine quality of seq
+# Run from terminal
+# Navigate to the file via filepath with cd
+# List files in directory with ls
+# Files should not be unzipped
+# Exit out of files with cd ..
+# Run using fastqc >your_filename_here.gz<
+# If you use fastqc on *.gz it will do for all fastq files 
+# If you have more than one core, you can specify the thread number with -t >thread number
+# Threadnumber normally cores*2
+# Output is an HTML file with the same name as file input
+fastqc *.gz
