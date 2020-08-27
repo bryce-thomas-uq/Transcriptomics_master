@@ -10,16 +10,3 @@
 # Threadnumber normally cores*2
 # Output is an HTML file with the same name as file input
 fastqc *.gz
-
-# Transcriptome analysis requires reference genome
-# Download fasta file, save in appropriate place, unzip
-# Good places to look - Ensembl.org
-# Need fasta cDNA files
-
-# *Building an index*
-
-# Run in terminal
-# Use kallisto to build index
-# -i instructs kallisto to build the index, next argument is the name of the index to be output - this should include all possible info, and name of fasta file to use
-# Remove all text and chevrons to use code below
-kallisto -i >name_ofindex_to_be_created< >name_of_fasta_file< 
