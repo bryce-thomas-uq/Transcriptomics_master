@@ -39,4 +39,4 @@ reverse_read_fastq_file_to_map.fastq.gz \
 #If multiQC is installed, go to the above directory and run multiQC on the folder after this using 
 cd ..
 multiqc -d . 
-
+#If errors/issues occur via using it through r terminal, try using cmd instead
