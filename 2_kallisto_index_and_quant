@@ -1,0 +1,37 @@
+# Transcriptome analysis requires reference genome
+# Download fasta file, save in appropriate place, unzip
+# Good places to look - Ensembl.org
+# Need fasta cDNA files
+
+# *Building an index*
+
+# Run in terminal
+# Use kallisto to build index
+# -i instructs kallisto to build the index, next argument is the name of the index to be output - this should include all possible info, and name of fasta file to use
+# Remove all text and chevrons to use code below, pay attention to filetype
+
+Kallisto index -i name_of_index_to_be_created.index name_of_fasta_file.fa 
+
+# After Index is created, must now map reads to the indexed reference host transcriptome
+# Include the '&>' at the end of each line to outputa log file that is saved - useful for downstream analyses 
+#if using single end reads certain extra parameters req:
+#--single tells program it's single
+#-l dictates median length
+#-s dictates the standard deviation around this number. these values are not concrete, but are also not too precise - there is pleanty of room for error
+#adding \ at the end of a line allows line breaks without interrupting code
+
+#**FOR SINGLE END READS**
+#kallisto quant -i name_of.index\
+#-o output_file_name_to_be_created \
+#-t thread_number \
+#--single -l 250 -s 30 \
+#fastq_file_to_map.fastq.gz \
+#&> log_file_name.log
+
+#**FOR PAIRED END READS**
+#kallisto quant -i name_of.index\
+#-o output_file_name_to_be_created \
+#-t thread_number \
+#forward_read_fastq_file_to_map.fastq.gz \
+#reverse_read_fastq_file_to_map.fastq.gz \
+#&> log_file_name.log
