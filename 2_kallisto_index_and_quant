@@ -21,17 +21,21 @@ Kallisto index -i name_of_index_to_be_created.index name_of_fasta_file.fa
 #adding \ at the end of a line allows line breaks without interrupting code
 
 #**FOR SINGLE END READS**
-#kallisto quant -i name_of.index\
-#-o output_file_name_to_be_created \
-#-t thread_number \
-#--single -l 250 -s 30 \
-#fastq_file_to_map.fastq.gz \
-#&> log_file_name.log
+kallisto quant -i name_of.index\
+-o output_file_name_to_be_created \
+-t thread_number \
+--single -l 250 -s 30 \
+fastq_file_to_map.fastq.gz \
+&> log_file_name.log
 
 #**FOR PAIRED END READS**
-#kallisto quant -i name_of.index\
-#-o output_file_name_to_be_created \
-#-t thread_number \
-#forward_read_fastq_file_to_map.fastq.gz \
-#reverse_read_fastq_file_to_map.fastq.gz \
-#&> log_file_name.log
+kallisto quant -i name_of.index\
+-o output_file_name_to_be_created \
+-t thread_number \
+forward_read_fastq_file_to_map.fastq.gz \
+reverse_read_fastq_file_to_map.fastq.gz \
+&> log_file_name.log
+
+#If multiQC is installed, run on the folder after this using 
+multiqc -d . 
+
