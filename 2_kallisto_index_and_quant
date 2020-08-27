@@ -36,6 +36,7 @@ forward_read_fastq_file_to_map.fastq.gz \
 reverse_read_fastq_file_to_map.fastq.gz \
 &> log_file_name.log
 
-#If multiQC is installed, run on the folder after this using 
+#If multiQC is installed, go to the above directory and run multiQC on the folder after this using 
+cd ..
 multiqc -d . 
 
