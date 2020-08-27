@@ -5,5 +5,9 @@ This is intended to be a set of script which will allow a user to take fastq and
 Programmes required:
 - R
 - RStudio
-- Kallisto (access to Path file)
 - Sublime text editor
+
+Command line programmes:
+- kallisto (access to Path file)
+- fastQc (access to Path file)
+- MultiQC (access to Path file)
