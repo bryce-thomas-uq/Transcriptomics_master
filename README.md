@@ -7,7 +7,7 @@ Programmes required:
 - RStudio
 - Sublime text editor
 - Trimmomatic
-- 
+- Trinity
 
 Command line programmes:
 - kallisto (access to Path file)
