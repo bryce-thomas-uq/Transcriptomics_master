@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -A UQ-QBI
+#PBS -l select=1:ncpus=24:mem=500GB
+#PBS -l walltime=336:00:00
+#PBS -N Samples_blastn_nt_current-date
+
+module load blast2/2.10.1
+
+cd /directory/with/space
+
+blastn \
+-task blastn \
+-query /samples-trimmed-concatenated-fastafile.fa \
+-db nt \
+-outfmt 11 \#this output is the asn format
+-max_target_seqs 10 \#change this with caution
+-num_threads 24 \#this is the same as ncpus
+-out /directory/with/space/Samples_trim_cnct_trin_ass_blastn.nt_current-date.asn
