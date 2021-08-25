@@ -6,6 +6,8 @@ Programmes required:
 - R
 - RStudio
 - Sublime text editor
+- Trimmomatic
+- 
 
 Command line programmes:
 - kallisto (access to Path file)
