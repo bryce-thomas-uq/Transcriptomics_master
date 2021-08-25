@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -A UQ-QBI
+#PBS -l select=1:ncpus=24:mem=250GB
+#PBS -l walltime=160:00:00
+#PBS -N N.brev_trinity
+
+cd /directory/with/space
+
+module load trinity/2.1.1
+
+Trinity \
+--seqType fq \
+--left sequence.1.trimmed.concatenated.fq \
+--right sequence.2.trimmed.concatenated.fq \
+--CPU 23 \
+--max_memory 250G \
+--output N.brevirostris_trimmed_concat_assembled_trinity \
+--SS_lib_type FR
