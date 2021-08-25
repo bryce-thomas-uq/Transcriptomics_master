@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -A UQ-QBI
+#PBS -l select=1:ncpus=20:mem=100GB
+#PBS -l walltime=08:00:00
+#PBS -N concat_trimming_samples
+
+
+cd /directory/with/samples
+
+mkdir Samples_untrimmed_fq.gz_all
+mv *fq.gz Samples_untrimmed_fq.gz_all
+
+mkdir Samples_trimmed_concat
+
+cat /Samples_trimmed/*1_paired.fq.gz \ #samples to concatenate
+Samples_trimmed_concat/Samples_1_trimmed_concat.fq.gz #concatenated sample name
+
+cat /Samples_trimmed/*2_paired.fq.gz \ 
+Samples_trimmed_concat/Samples_2_trimmed_concat.fq.gz
