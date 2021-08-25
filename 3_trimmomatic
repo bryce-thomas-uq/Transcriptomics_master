@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -A UQ-QBI
+#PBS -l select=1:ncpus=10:mem=100GB
+#PBS -l walltime=24:00:00
+#PBS -N N.brev_Trimmomatic
+#ILLUMINACLIP: Cut adapter and other illumina-specific sequences from the read. 
+#SLIDINGWINDOW: Performs a sliding window trimming approach. It starts scanning at the 5‟ end and clips the read once the average quality within the window falls below a threshold. 
+#MAXINFO: An adaptive quality trimmer which balances read length and error rate to maximise the value of each read 
+#LEADING: Cut bases off the start of a read, if below a threshold quality 
+#TRAILING: Cut bases off the end of a read, if below a threshold quality 
+#CROP: Cut the read to a specified length by removing bases from the end 
+#HEADCROP: Cut the specified number of bases from the start of the read 
+#MINLEN: Drop the read if it is below a specified length 
+#AVGQUAL: Drop the read if the average quality is below the specified level 
+#TOPHRED33: Convert quality scores to Phred-33 
+#TOPHRED64: Convert quality scores to Phred-64
+
+module load Java/1.8.0_45
+module load trimmomatic/0.39
+
+cd /directory/with/space
+
+trimmomatic PE \ #Means Paired Ends mode
+FD8_1.fq.gz FD8_2.fq.gz \ #these are the 2 input files
+N.brevirostris_post_trimmomatic/FD8_1_paired.fq.gz \ #For paired-end data, 4 output files are specified, 2 for the 'paired' output where both reads survived the processing
+N.brevirostris_post_trimmomatic/FD8_1_unpaired.fq.gz \ #2 for corresponding 'unpaired' output where a read survived, but the partner read did not
+N.brevirostris_post_trimmomatic/FD8_2_paired.fq.gz \
+N.brevirostris_post_trimmomatic/FD8_2_unpaired.fq.gz \
+ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2:keepBothReads LEADING:3 TRAILING:3 MINLEN:36
